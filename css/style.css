@@ -1,0 +1,662 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+}
+
+p {
+  line-height: 1.55;
+  color: #333;
+  font-size: 400;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 62px;
+}
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 65px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+/* ==================================================
+  General
+  ================================================== */
+a {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+/* ==================================================
+  Elements
+  ================================================== */
+.btn {
+  background-color: #199EB8;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  color: #fff;
+  padding: 15px 45px;
+  border-radius: 50px;
+}
+
+.btn:hover {
+  background-color: #E04F00;
+  color: #fff;
+}
+
+.btn:focus {
+  color: #fff;
+}
+
+.btn-ghost {
+  border: 3px solid #fff;
+  background-color: transparent;
+}
+
+.btn-ghost:hover {
+  background-color: #fff;
+  color: #199EB8;
+}
+
+section {
+  padding: 85px 0;
+}
+
+.card {
+  position: relative;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.scrolltop {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #199EB8;
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+}
+
+.scrolltop:hover, .scrolltop:active, .scrolltop:focus {
+  color: #fff !important;
+  opacity: .75;
+}
+.tlinks{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+/* ==================================================
+  Hero Styling
+================================================== */
+.hero {
+  display: table;
+  position: relative;
+  background-image: url(../img/cover.jpg);
+  background-size: cover;
+  padding: 150px 0;
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+}
+
+.hero:after {
+  content: '';
+  z-index: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.65);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.hero-brand {
+  margin-bottom: 75px;
+  display: inline-block;
+}
+
+.hero-brand:hover {
+  opacity: .75;
+}
+
+.tagline {
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  font-size: 26px;
+  margin: 45px 0 75px 0;
+  color: #fff;
+}
+
+
+
+
+
+/* Mobile Nav body classes */
+body.mobile-nav-active {
+  overflow: hidden;
+}
+
+body.mobile-nav-active #mobile-nav {
+  left: 0;
+}
+
+body.mobile-nav-active #mobile-nav-toggle {
+  color: #fff;
+}
+
+/* ==================================================
+  Stats Styling
+================================================== */
+.stats-row {
+  margin-top: 65px;
+}
+
+.stats-col .circle {
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  color: #666;
+  border: 6px solid #199EB8;
+  border-radius: 50%;
+  padding: 55px 25px 0 25px;
+  position: relative;
+}
+
+.stats-col .circle .stats-no {
+  color: #fff;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  top: -25px;
+  right: -15px;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  background-color: #E04F00;
+  position: absolute;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+/* ==================================================
+  Parallax Styling
+  ================================================== */
+.block {
+  color: #fff;
+  height: 490px;
+  overflow: hidden;
+  padding-top: 85px;
+}
+
+.block h2 {
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.block p {
+  color: #fff;
+  margin-bottom: 45px;
+}
+
+/* ==================================================
+  Features Styling
+  ================================================== */
+.features {
+  padding-bottom: 45px;
+}
+
+.features h2 {
+  color: #199EB8;
+}
+
+.feature-col {
+  display: table;
+  padding-bottom: 45px;
+}
+
+.feature-col > div > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.feature-col > div > div:last-child {
+  padding-left: 20px;
+}
+
+.feature-col .feature-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 15px;
+  background: #199EB8;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 70px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.feature-col h3 {
+  color: #199EB8;
+}
+
+.feature-col p {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #999;
+}
+
+/* ==================================================
+  Call-to-action Styling
+  ================================================== */
+.cta {
+  background-color: #199EB8;
+  padding: 25px 0;
+}
+
+.cta h2 {
+  margin-bottom: 5px;
+}
+
+.cta h2,
+.cta p {
+  color: #fff;
+}
+
+.cta p {
+  margin-bottom: 0;
+  opacity: .75;
+}
+
+.cta .btn-ghost {
+  position: relative;
+  top: 13px;
+}
+
+/* ==================================================
+  Portfolio Styling
+  ================================================== */
+.portfolio {
+  background-color: #edf6ff;
+  padding-bottom: 0;
+}
+
+.portfolio h2 {
+  color: #199EB8;
+  margin-bottom: 25px;
+}
+
+.portfolio-grid {
+  margin-top: 65px;
+}
+
+.portfolio-grid .row {
+  margin: 0;
+}
+
+.portfolio-grid .row > div {
+  padding: 0;
+}
+
+.portfolio-grid .row > div .card img {
+  width: 100%;
+}
+
+.portfolio-grid .row > div .card .portfolio-over {
+  position: absolute;
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.portfolio-grid .row > div .card .portfolio-over > div {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.portfolio-grid .row > div .card .portfolio-over .card-title {
+  color: #fff;
+  font-size: 30px;
+}
+
+.portfolio-grid .row > div .card .portfolio-over .card-text {
+  color: #fff;
+  opacity: .75;
+  padding: 0 45px;
+}
+
+.portfolio-grid .row > div .card:hover .portfolio-over {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 图片移动旋转特效 */
+.details-grid-w3lsagile {
+	padding: 0 5px;
+}
+.details-grid-image-w3lsagile img {
+  width: 100%;
+}
+.details-grid1-w3lsagile, .details-grid2-w3lsagile, .details-grid3-w3lsagile {
+	background-color: #FFF;
+	padding: 15px;
+	text-align: center;
+}
+/* 不想要图片移动就注释下面这个就行 */
+.hover06 figure img {
+	-ms-transform: rotate(15deg) scale(1.4);
+	-o-transform: rotate(15deg) scale(1.4);
+	-moz-transform: rotate(15deg) scale(1.4);
+	-webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(15deg) scale(1.4);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	-moz-transition: .3s ease-in-out;
+	-o-transition: .3s ease-in-out;
+	-ms-transition: .3s ease-in-out;
+}
+
+.hover06 figure:hover img,
+.w3_agile_services_grid:hover .hover06 figure img {
+	-webkit-transform: rotate(0) scale(1);
+	transform: rotate(0) scale(1);
+	-moz-transform: rotate(0) scale(1);
+	-o-transform: rotate(0) scale(1);
+	-ms-transform: rotate(0) scale(1);
+}
+
+/*-- Stats --*/
+.numscroller {
+	text-align:left;
+	margin-left: 110px;
+}
+.stats {
+    background: url(../images/banner2.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 370px;
+    text-align: center;
+    padding-top: 70px;
+}
+.stats h2 {
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+	letter-spacing:3px;
+}
+.stats p {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 35px;
+    letter-spacing: 2px;
+    text-align: left;
+	margin-left: 110px;
+}
+.stats-info {
+	margin-top: 60px;
+}
+.stats-grid i {
+	margin-bottom: 35px;
+    padding: 21px 0 0 0;
+    border: 1px solid #fff;
+    float: left;
+    width: 85px;
+    height: 85px;
+    font-size: 40px;
+    color: #fff;
+}
+.stats-grid {
+	font-size: 35px;
+	font-weight: 600;
+	color: #fff;
+	margin-bottom: 10px;
+}
+p.stats-info {
+	margin-top: 0px;
+}
+.agile_services_grid figure {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+/*-- //Stats --*/
+/* 图片移动旋转特效 */
+
+/*-- Details --*/
+p.sub_cap.des {
+  color: #fff;
+}
+.details-w3lsagile {
+  padding: 6em 0;
+  background: url(../img/banner2.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.agileits-button.details_w3ls {
+  margin: 1em 0;
+}
+.details-w3lsagile h3 {
+color: #FFF;
+}
+
+.details-grid-w3lsagile {
+padding: 0 5px;
+}
+
+.details-grid1-w3lsagile, .details-grid2-w3lsagile, .details-grid3-w3lsagile {
+background-color: #FFF;
+padding: 15px;
+text-align: center;
+}
+
+.details-grid-info-w3lsagile p {
+  line-height: 25px;
+  font-size: 13px;
+  margin: 1em 0 1em 0;
+}
+
+.details-grid-w3lsagile button.btn, .send-button button.btn {
+font-weight: 600;
+color: #0c3b47;
+padding: 10px 30px;
+border: 1px solid #0c3b47;
+border-right: none;
+outline: none;
+background-color: #FFF;
+border-radius: 0;
+}
+
+.details-grid-w3lsagile button.btn:hover, .send-button button.btn:hover {
+background-color: #0c3b47;
+border-color: #0c3b47;
+color: #FFF;
+}
+
+button i.fa {
+margin-left: 10px;
+}
+.details-grid-image-w3lsagile img {
+  width: 100%;
+}
+.details-grid-info-w3lsagile h4 {
+  font-size: 1.1em;
+  color: #212121;
+  letter-spacing: 1px;
+  margin: 1em 0 0.5em
+}
+.details-grid-info-w3lsagile ul li {
+  display: inline-block;
+  color: #00acee;
+}
+/*-- //Details --*/
+
+/*-- /banner-bottom --*/
+
+.banner_bottom_w3ls_agile,
+.portfolio-agileinfo,
+.featured_services {
+	padding: 5em 0;
+}
+
+h2.agile_heading,
+h3.agile_heading {
+	color: #282828;
+	font-size: 3em;
+	font-weight: 600;
+	    letter-spacing: 1px;
+}
+h2.agile_heading {
+    line-height: 1.5em;
+    letter-spacing: 3px;
+}
+h3.agile_heading.two {
+	color: #fff;
+}
+
+.banner_bottom_w3ls_info {
+	margin: 0 auto;
+	text-align: center;
+	width: 60%;
+}
+
+.banner_bottom_w3ls_info p {
+	margin: 2em 0;
+}
+
+.agileits-button {
+	text-align: center;
+}
+
+.agileits-button a {
+    font-weight: 600;
+    color: #feba02;
+    padding: 10px 30px;
+    border: 1px solid #feba02;
+    border-right: 1px solid rgba(255, 255, 255, 0.02);
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 0;
+    letter-spacing: 1px;
+}
+.agileits-button a:hover {
+	background: #feba02;
+    border: solid 1px #feba02;
+	color:#fff;
+}
+
+
+/*-- //banner-bottom --*/
+
+
+
+
+/* Benefits
+/*与我们的合作的理由-------------------------------------------------------*/
+
+.benefits .benefits-box span {
+  font-size: 60px;
+  color: #dca44b;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.benefits .benefits-box h3 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+
+/* Parallax Promo
+/*我们的口号-------------------------------------------------------*/
+
+.parallax-promo {
+  padding: 256px 0;
+}
+
+/* .parallax-promo .parallax {
+  background: url(../img/about_us.png) no-repeat fixed center;
+} */
+
+.parallax {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50% 0;
+  z-index: -1;
+}
+
+.mobile .parallax {
+  background-attachment: scroll !important;
+  background-position: 50% 50% !important;
+}
+
+.parallax-promo h3 {
+  color:rgb(255, 255, 255);
+  font-size: 64px;
+  padding: 80px 30px;
+  font-family: "Lora", serif;
+  letter-spacing: 0.05em;
+  border: 14px solid rgba(255, 255, 255, 0.5);
+  text-align: center;
+  line-height: 1.2;
+}
+
+
+
+
+
+
