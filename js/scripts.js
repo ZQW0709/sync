@@ -38,7 +38,7 @@
 
 	// Sticky menu
 	$(window).scroll(function(){
-
+    console.log("??????")
 		var windowWidth = $(window).width();
 
 		if ($(window).scrollTop() > 10 & windowWidth > 974){
