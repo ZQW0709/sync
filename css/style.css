@@ -388,7 +388,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 	-o-transform: rotate(15deg) scale(1.4);
 	-moz-transform: rotate(15deg) scale(1.4);
 	-webkit-transform: rotate(15deg) scale(1.4);
-	transform: rotate(15deg) scale(1.4);
+  transform: rotate(15deg) scale(1.4);
+  /* transform: skew(30deg,20deg) scale(1.6); */
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 	-moz-transition: .3s ease-in-out;
@@ -602,7 +603,7 @@ h3.agile_heading.two {
 
 .benefits .benefits-box span {
   font-size: 60px;
-  color: #dca44b;
+  color: #7F3E97;
   font-weight: 300;
   line-height: 1;
 }
@@ -657,6 +658,30 @@ h3.agile_heading.two {
 
 
 
-
+ /* 鼠标跟随 */
+            /*鼠标跟随小圆圈*/
+            .mouseCircle {
+              animation: textPopup 1s;
+              width: 10px;
+              height: 10px;
+              border: 1px solid #cccc9a;
+              border-radius: 50%;
+              position: absolute;
+              z-index: 99;
+          }
+          @keyframes textPopup {
+              0%,
+              100% {
+                  opacity: 0;
+              }
+              5% {
+                  opacity: 1;
+              }
+              100% {
+                  width: 20px;
+                  height: 20px;
+                  transform: translateY(-50px);
+              }
+          }
 
 
