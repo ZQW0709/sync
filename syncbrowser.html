@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>SYNC浏览器</title>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+</head>
+<style>
+
+[v-cloak] {
+  display: none !important;
+}
+
+
+  .table {
+    margin: 200px;
+  }
+
+  .demonstration {
+    color: darkgrey;
+  }
+
+  .fontColor {
+    color: blue;
+  }
+
+  .el-row {
+    margin-bottom: 20px;
+  }
+
+  .grid-content {
+    display: flex;
+    align-items: center;
+    height: 100px;
+  }
+
+  .grid-cont-right {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+  }
+
+  .grid-num {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .grid-con-icon {
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    line-height: 100px;
+    color: #fff;
+  }
+
+  .grid-con-1 .grid-con-icon {
+    background: rgb(48, 65, 86);
+  }
+
+  .grid-con-1 .grid-num {
+    color: rgb(48, 65, 86);
+  }
+
+  .mgb20 {
+    margin-bottom: 20px;
+  }
+
+  .input-class {
+    width: 100%;
+    height: 35px;
+  }
+</style>
+
+<body>
+  <div id="app" v-cloak>
+    <!-- <el-button @click="visible = true">Button</el-button>
+    <el-dialog :visible.sync="visible" title="Hello world">
+      <p>Try Element</p>
+    </el-dialog> -->
+    <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect"
+      background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+      <el-menu-item index="1">首页</el-menu-item>
+      <el-menu-item index="2">SYNC论坛</el-menu-item>
+      <el-menu-item index="3">行业解决方案</el-menu-item>
+      <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">SYNC浏览器</a></el-menu-item>
+      <el-menu-item index="5"><a href="https://www.ele.me" target="_blank">开放平台</a></el-menu-item>
+    </el-menu>
+
+    <el-row :gutter="20" style="margin-top:20px" :data="list">
+      <el-col :span="6">
+        <el-card shadow="hover">
+          HeadBLock:{{list.headBlock}}
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card shadow="hover">
+          IrreversibleBlock:{{list.irreversibleBlock}}
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card shadow="hover">
+          Tps:{{list.tps }}
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card shadow="hover">
+          Producer:{{list.producer}}
+        </el-card>
+      </el-col>
+    </el-row>
+
+    <el-col :span="8">
+        <el-table
+          v-loading="listLoading"
+          :data="producerList"
+          border
+          style="margin-left:50px;margin-bottom:20px;margin-top:30px"
+          element-loading-text="Loading"
+        >
+          <el-col :span="8">
+            <el-table-column
+              label="producer"
+              align="center">
+              <template slot-scope="scope" >
+                {{ scope.row.producer }}
+              </template>
+            </el-table-column>
+          </el-col>
+          <el-col :span="8">
+            <el-table-column
+              label="isAlive"
+              width="180"
+              align="center">
+              <template slot-scope="scope">
+                {{ scope.row.isAlive }}
+              </template>
+            </el-table-column>
+          </el-col>
+          <el-col :span="8">
+            <el-table-column
+              label="position"
+              align="center">
+              <template slot-scope="scope">
+                {{ scope.row.position }}
+              </template>
+            </el-table-column>
+          </el-col>
+        </el-table>
+      </el-col>
+
+      <el-col :span="14" :offset="2" style="height:300px;margin-top:30px">
+          <el-row >
+            <el-col :span="5" style="margin-top:7px">
+              <span class="demonstration" >根据账号和日期来查询事务：</span>
+            </el-col>
+            <el-col :span="9">
+                  <span>
+                      <el-date-picker
+                      :picker-options="pickerOptions2"
+                      style="width:100%"
+                      unlink-panels
+                      v-model="value7"
+                      type="daterange"
+                      range-separator="至"
+                      start-placeholder="开始日期"
+                      end-placeholder="结束日期">
+                    </el-date-picker>
+                  </span>
+                  
+             
+            </el-col>
+            <el-col :span="3" >
+              <span><el-input v-model="account" placeholder="账号" style="margin-left:2px" /></span>
+            </el-col>
+            <el-col :span="3" >
+              <span> <el-button v-loading.fullscreen.lock="fullscreenLoading" type="primary" style="margin-left:5px" @click="onSearchTransactions">查询</el-button></span>
+            </el-col>
+          </el-row>
+    
+          <!-- <el-col :span="5.5">
+                    <span>根据区块ID号查询具体信息：</span>
+                    </el-col> -->
+          <el-row :gutter="1">
+            <div class="demonstration" >
+              <el-col :span="5" style="margin-top:7px" ><span>根据区块ID号查询具体信息：</span></el-col>
+              <el-col :span="12" ><span><el-input v-model="idNum" placeholder="ID号"/></span></el-col>
+              <el-col :span="5" ><span> <el-button type="primary" style="margin-left:5px" @click="onSearchBlock">查询</el-button></span></el-col>
+            </div>
+          </el-row>
+    
+        </el-col>
+
+
+    <el-table :data="tableData" style="width:100%;margin:auto" element-loading-text="Loading" border>
+      <el-table-column label="id" width="210" align="center">
+        <template slot-scope="scope">
+          <el-tooltip :content="scope.row.id" class="item" effect="dark" placement="top-start">
+            <div class="fontColor" @click="clickfun(scope.row.id)">
+              {{ scope.row.id | protect }}
+            </div>
+          </el-tooltip>
+        </template>
+      </el-table-column>
+      <el-table-column label="action" align="center">
+        <template slot-scope="scope">
+          {{ scope.row.action }}
+        </template>
+      </el-table-column>
+      <el-table-column label="time" width="250" align="center">
+        <template slot-scope="scope">
+          {{ scope.row.time }}
+        </template>
+      </el-table-column>
+    </el-table>
+  </div>
+</body>
+
+<script>
+  new Vue({
+    el: '#app',
+    filters: {
+      protect: function (value) {
+        if (!value) {
+          return ''
+        }
+        return value.substr(0, 8) + '************' + value.substr(-5)
+      }
+    },
+    data: function () {
+      return {
+        activeIndex2: '1',
+      list: [],
+      listTransactions: [],
+      tableData: [],
+      actionArray: {},
+      listData: [],
+      count: 0, // 总数
+      currentPage: 1, // 页数
+      size: 20, // 每页数量
+      index: 0, // 记录截取list的索引值
+      producerList: [],
+      account: '',
+      dateList: '',
+      idNum: '',
+      listLoading: false,
+      fullscreenLoading: false, 
+      txId: '',
+      dataTotal: 20,
+      tempData: 0,
+      pickerOptions2: {
+        shortcuts: [
+          {
+            text: '最近一周',
+            onClick(picker) {
+              const end = new Date()
+              const start = new Date()
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+              picker.$emit('pick', [start, end])
+            }
+          },
+          {
+            text: '最近一个月',
+            onClick(picker) {
+              const end = new Date()
+              const start = new Date()
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+              picker.$emit('pick', [start, end])
+            }
+          },
+          {
+            text: '最近三个月',
+            onClick(picker) {
+              const end = new Date()
+              const start = new Date()
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+              picker.$emit('pick', [start, end])
+            }
+          }
+        ]
+      },
+      value7: ''
+
+      }
+    },
+
+    created() {
+    this.initData() // 初始化阶段
+    this.initProducerData()
+  },
+
+    mounted() {
+      // 刷新函数，每0.5秒更新一次
+      if (this.timer) {
+        clearInterval(this.timer)
+      } else {
+        this.timer = setInterval(() => {
+          this.initData()
+        }, 500)
+      }
+
+      // setTimeout(() => {
+      //   this.listLoading = false
+      // }, 3000)
+    },
+    destroyed() {
+      clearInterval(this.timer)
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      initData() {
+        this.$http.get('http://192.168.0.10:8082/v1/eos/chainInfo')
+          .then(res => {
+            this.list = res.data
+            const obj = res.data.transactions
+
+            if (obj === null) {
+              return
+            }
+            this.tableData = []
+            obj.forEach(element => {
+              // const tempList = {}
+              // tempList.id = element.id
+              // tempList.action = element.action
+              // tempList.time = this.getFormatDate(element.time)
+              this.tableData.unshift(element)
+            })
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      },
+      initProducerData() {
+        this.$http.get('http://192.168.0.10:8082/v1/eos/producerInfo')
+      .then(res => {
+        const obj = res.data
+        this.producerList = []
+        obj.forEach(element => {
+          const producerList = {}
+          producerList.producer = element.producer
+          producerList.isAlive = element.isAlive
+          producerList.position = element.position
+          this.producerList.push(producerList)
+        })
+      })
+    },
+      clickfun(row) {
+        // this.fullscreenLoading = true
+        // this.txId = row
+        this.$http.get('http://192.168.0.10:8082/v1/eos/get_transaction_by_tx_Id/'+row)
+        .then(res => {
+          // this.fullscreenLoading = false
+          // this.$router.push({
+          //   name: 'searchTrantionById',
+          //   params: res.data
+          // })
+          console.log(res.data)
+        })
+      },
+      onSearchTransactions() {
+      if (this.dateList.length === 0 && this.account.length === 0) {
+        this.$alert('请输入卡号', '查询错误', {
+          confirmButtonText: '确定'
+        })
+        return
+      }
+      this.fullscreenLoading = true
+      getTransactions({
+        startDate: this.dateList[0],
+        endDate: this.dateList[1],
+        account: this.account,
+        page: 1
+      })
+        .then(res => {
+          this.fullscreenLoading = false
+          this.$router.push({
+            name: 'searchTrantion',
+            params: {
+              resData: res.data,
+              Date: this.dateList,
+              account: this.account
+            }
+          }) //, this.dateList,this.account
+        })
+        .catch(err => {
+          console.log(err)
+          this.fullscreenLoading = false
+          this.$alert('没有该账号信息', '查询错误', {
+            confirmButtonText: '确定'
+          })
+          return
+        })
+    },
+    onSearchBlock() {
+      if (this.idNum.length === 0) {
+        this.$alert('请输入账号', '查询错误', {
+          confirmButtonText: '确定'
+        })
+        return
+      }
+      this.fullscreenLoading = true
+      getBlock({
+        block_num_or_id: this.idNum
+      })
+        .then(res => {
+          this.fullscreenLoading = false
+          this.$router.push({ name: 'searchBlock', params: res.data })
+        })
+        .catch(err => {
+          console.log(err)
+          this.fullscreenLoading = false
+          this.$alert('没有查到该账号', '查询失败', {
+            confirmButtonText: '确定'
+          })
+          return
+        })
+    },
+      getFormatDate(datetime) {
+           // 获取年月日时分秒值
+	var year = datetime.getFullYear(),
+		month = ("0" + (datetime.getMonth() + 1)).slice(-2),
+		date = ("0" + datetime.getDate()).slice(-2),
+		hour = ("0" + datetime.getHours()).slice(-2),
+		minute = ("0" + datetime.getMinutes()).slice(-2),
+		second = ("0" + datetime.getSeconds()).slice(-2);
+	// 连接
+	var result = year + "-"+ month +"-"+ date +" "+ hour +":"+ minute +":" + second;
+	// 返回
+	return result;
+            },
+    },
+  })
+</script>
+
+</html>

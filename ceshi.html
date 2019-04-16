@@ -6,41 +6,36 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-    .dropbtn {
-      color: white;
-      padding: 16px;
-      background-color: #4CAF50;
-      font-size: 16px;
-      cursor: pointer;
-
-    }
-
-    .dropdown-content {
-      display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    }
-    /* 下拉菜单的链接 */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+    .wrap {
+    height: 100px;
+    /*line-height用来控制最多显示多少行文本*/
+    line-height: 20px;
+    overflow: hidden;
 }
-    .dropdown:hover .dropdown-content {
-    display: block;
+.wrap:before {
+    float: left;
+    /*要大于或等于after元素宽度*/
+    width: 1.5em;
+    height: 100%;
+    content: '';
+}
+.text {
+    float: right;
+    /*用负值的marginLeft来避免由before产生的空白空间*/
+    /*因为实际需求上你的父容器里不可能左边是一片空白吧*/
+    margin-left: -1.5em;
+    /*既然采用了负值marginLeft，那么文本容器宽度就可以100%占满父容器宽度了*/
+    width: 100%;
+}
+.wrap:after {
+    float: right;
+    /*一般三个点就差不多1em宽，用em作单位能自适应字体大小*/
+    width: 1em;
+    content: '...';
 }
   </style>
 </head>
 <body>
-    <div class="dropdown">
-        <button class="dropbtn">下拉菜单</button>
-        <div class="dropdown-content">
-          <a href="#">菜鸟教程 1</a>
-          <a href="#">菜鸟教程 2</a>
-          <a href="#">菜鸟教程 3</a>
-        </div>
+    <div class="wrap">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
 </body>
 </html>

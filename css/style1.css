@@ -326,6 +326,7 @@
 
 .nav-type-2 .nav>li>a:hover,
 .nav-type-2 .nav>li>a:focus {
+  
   background-color: transparent;
 }
 
